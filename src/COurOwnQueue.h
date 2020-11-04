@@ -12,7 +12,7 @@ public:
     COurOwnQueue();
     COurOwnQueue(const COurOwnQueue&);
     ~COurOwnQueue();
-    void push();
+    void push(T item);
     void clear();
     bool IsEmpty();
     int GetN();
