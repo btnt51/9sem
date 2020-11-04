@@ -1,6 +1,6 @@
 #include <iostream>
-
+#include "prototypes.h"
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    GeneratingNumber();
     return 0;
 }

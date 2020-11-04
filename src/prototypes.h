@@ -4,5 +4,6 @@
 
 #ifndef INC_9SEM_PROTOTYPES_H
 #define INC_9SEM_PROTOTYPES_H
-
+#include <iostream>
+std::string GeneratingNumber();
 #endif //INC_9SEM_PROTOTYPES_H
