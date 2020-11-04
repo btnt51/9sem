@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "prototypes.h"
 
 class CParking
 {
@@ -16,6 +17,11 @@ private:
     class CAuto
     {
     public:
+        CAuto()
+        {
+            Number= GeneratingNumber();
+            CountExiting = 0;
+        }
         std::string getInfoDeparture()
         {
             return "\n"
@@ -26,10 +32,12 @@ private:
         {
             return "Car number " + this->Number + " arrived at the parking lot";
         }
+        void CountintExiting(){ this->CountExiting++;}
     private:
        std::string Number;
        int CountExiting;
     };
+
 };
 
 
