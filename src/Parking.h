@@ -16,14 +16,18 @@ private:
     class CAuto
     {
     public:
-        std::string getInfo()
+        std::string getInfoDeparture()
         {
-            return "Car with number: " + this->Number + " is staying on " + PosOnParking +
+            return "\n"
+                   "Car with number " + this->Number + " leaving the parking lot\nCar with number: " + this->Number +
                    "deleted " + std::to_string(CountExiting) + " -times";
+        }
+        std::string getInfoArrival()
+        {
+            return "Car number " + this->Number + " arrived at the parking lot";
         }
     private:
        std::string Number;
-       char PosOnParking;
        int CountExiting;
     };
 };
