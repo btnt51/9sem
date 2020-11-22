@@ -33,20 +33,18 @@ private:
             return "Car number " + this->Number + " arrived at the parking lot";
         }
         void CountingExiting(){ this->CountExiting++;}
-        int ChooseArrivalDeparture()
+        void ChooseArrivalDeparture()
         {
             char a = ' ';
             std::cout << "To place the car in the Parking lot, press 1/nTo pick up a car from the Parking lot, press 2"<< std::endl;
             std::cin >> a;
             switch (a) {
-                case '1': {
+                case '1':
                     Arrival();
                     break;
-                }
-                case '2': {
+                case '2':
                     Departure();
                     break;
-                }
                 default: {
                     std::cout <<"You entered an incorrect value. Enter again."<< std::endl;
                     ChooseArrivalDeparture();
@@ -55,11 +53,11 @@ private:
             }
 
         }
-        int Arrival()
+        void Arrival()
         {
 
         }
-        int Departure()
+        void Departure()
         {
 
         }
