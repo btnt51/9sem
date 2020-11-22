@@ -1,6 +1,6 @@
 #include <iostream>
 #include "prototypes.h"
 int main() {
-    GeneratingNumber();
+    std::cout << GeneratingNumber();
     return 0;
 }
