@@ -32,6 +32,7 @@ private:
         {
             return "Car number " + this->Number + " arrived at the parking lot";
         }
+        void CountingExiting(){ this->CountExiting++;}
         int ChooseArrivalDeparture()
         {
             char a = ' ';
@@ -62,7 +63,6 @@ private:
         {
 
         }
-        void CountingExiting(){ this->CountExiting++;}
     private:
        std::string Number;
        int CountExiting;
