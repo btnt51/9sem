@@ -32,7 +32,7 @@ private:
         {
             return "Car number " + this->Number + " arrived at the parking lot";
         }
-        void CountintExiting(){ this->CountExiting++;}
+        void CountingExiting(){ this->CountExiting++;}
     private:
        std::string Number;
        int CountExiting;
