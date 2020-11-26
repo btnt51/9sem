@@ -8,10 +8,17 @@
 #include <iostream>
 #include <string>
 #include "prototypes.h"
+#include "COurOwmList.h"
 
 class CParking
 {
 public:
+    CParking(int x);
+    ~CParking();
+    static void ChooseArrivalDeparture(const std::string& Command);
+    void Arrival();
+    void Departure(std::string Number);
+    void Display();
 
 private:
     class CAuto
@@ -19,7 +26,12 @@ private:
     public:
         CAuto()
         {
-            Number= GeneratingNumber();
+            Number= GeneratingNumber(rand()*rand());
+            CountExiting = 0;
+        }
+        ~CAuto()
+        {
+            Number.clear();
             CountExiting = 0;
         }
         std::string getInfoDeparture()
@@ -32,40 +44,15 @@ private:
         {
             return "Car number " + this->Number + " arrived at the parking lot";
         }
+        std::string getNumber(){ return Number; }
         void CountingExiting(){ this->CountExiting++;}
-        void ChooseArrivalDeparture()
-        {
-            char a = ' ';
-            std::cout << "To place the car in the Parking lot, press 1/nTo pick up a car from the Parking lot, press 2"<< std::endl;
-            std::cin >> a;
-            switch (a) {
-                case '1':
-                    Arrival();
-                    break;
-                case '2':
-                    Departure();
-                    break;
-                default: {
-                    std::cout <<"You entered an incorrect value. Enter again."<< std::endl;
-                    ChooseArrivalDeparture();
-                    break;
-                }
-            }
 
-        }
-        void Arrival()
-        {
-
-        }
-        void Departure()
-        {
-
-        }
     private:
        std::string Number;
        int CountExiting;
-    };
 
+    };
+    COwnList<CAuto> LCars;
 };
 
 

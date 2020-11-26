@@ -9,9 +9,9 @@
 
 using namespace std;
 
-string GeneratingNumber()
+string GeneratingNumber(int a)
 {
-    srand(time(nullptr));
+    srand(time(nullptr)*a);
     string alpabet = "ABCEHMKOPTYX";
     string result;
     result += alpabet[rand() % 12 + 0];
