@@ -31,23 +31,14 @@ void CMenu::Menu()
     Park->Display();
     while(true)
     {
-        std::string Command = " ";
+        std::string Command;
         std::cout << "Enter plz arrival for adding car to parking lot" << std::endl;
         std::cout << "Enter departure for executing car from parking lot" << std::endl;
         std::cout << "Enter exit for exiting from program" << std::endl;
         Park->Display();
-        std::cin >> Command;
-        for(char & c : Command) c = toupper(c);              //Переписать тут разделение на больше и меньше
-        // 16 символов чтобы нормально работать с этой залупой!!!!!
-        if(strcmp(Command.c_str(),"EXIT") == 0)
-        {
-            break;
-        }
-        else if(strcmp(Command.c_str(),"ARRIVAL") == 0 || strcmp(Command.c_str(), "ARIVAL")==0)
-        {
-            Park->Arrival();
-        }
-        else if(Command.length() == 15)
+        std::getline(std::cin,Command);
+        int Size = Command.length();
+        if(Size == 16)
         {
             int j = 0;
             std::string CommandAndNumber[2];
@@ -63,8 +54,22 @@ void CMenu::Menu()
                     j++;
                 }
             }
+            for (char &c : CommandAndNumber[0]) c = toupper(c);
             if(strcmp(CommandAndNumber[0].c_str(),"DEPARTURE") == 0)
                 Park->Departure(CommandAndNumber[1]);
+        }
+        else
+        {
+            for (char &c : Command) c = toupper(c);              //Переписать тут разделение на больше и меньше
+            // 16 символов чтобы нормально работать с этой залупой!!!!!
+            if (strcmp(Command.c_str(), "EXIT") == 0)
+            {
+                break;
+            }
+            else if (strcmp(Command.c_str(), "ARRIVAL") == 0 || strcmp(Command.c_str(), "ARIVAL") == 0)
+            {
+                Park->Arrival();
+            }
         }
     }
 }
