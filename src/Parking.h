@@ -10,7 +10,8 @@
 #include <list>
 #include "prototypes.h"
 #include "COurOwmList.h"
-//class CAuto;
+//#include "CAuto.h"
+
 class CParking
 {
 public:
@@ -26,6 +27,7 @@ private:
     public:
         CAuto()
         {
+            std::cout << "Cauto created" << std::endl;
             Number = GeneratingNumber(rand()*rand());
             CountExiting = 0;
         }
@@ -49,16 +51,17 @@ private:
         void CountingExiting(){ this->CountExiting++;}
 
     private:
-       std::string Number;
-       int CountExiting;
+        std::string Number;
+        int CountExiting;
     };
+
 
 #ifdef OwnList
     COwnList<CAuto> LCars;
 #endif //OwnList
-#ifdef stllist
+
     std::list<CAuto> LCars;
-#endif //stllist
+
 };
 
 

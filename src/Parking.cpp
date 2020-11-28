@@ -7,6 +7,7 @@
 
 CParking::CParking()
 {
+
 }
 
 CParking::~CParking()
@@ -44,7 +45,7 @@ void CParking::Departure(std::string Number)
         if(iter->getNumber() == Number)
         {
             std::cout<< iter->getInfoDeparture() << std::endl;
-            LCars.erase(iter);
+            iter = LCars.erase(iter);
         }
         else
         {
@@ -52,7 +53,7 @@ void CParking::Departure(std::string Number)
             i++;
         }
     }
-    #endif
+#endif
 }
 
 void CParking::Display()
@@ -64,14 +65,11 @@ void CParking::Display()
 #endif
 #ifdef stllist
     int i = 0;
-    auto iterator = LCars.begin();
-    while(i <= LCars.size())
-    {
-        std::cout << "Parking lot#" << i+1 << " Number of car is " <<
-            iterator->getNumber() << std::endl;
-        iterator++;
-        i++;
-    }//
+    std::for_each(LCars.begin(), LCars.end(), [&i](auto Element){
+        std::cout << "Parking lot#" << ++i << " Number of car is " <<
+                             Element.getNumber() << std::endl;
+    });
+    i=0;
 #endif
 }
 

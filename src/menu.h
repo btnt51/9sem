@@ -10,7 +10,6 @@ class CMenu {
 public:
     CMenu();
     ~CMenu();
-    //std::string GetNumberFromCommand();
     void Menu();
 
 private:

@@ -1,6 +1,9 @@
 #include <iostream>
-#include "Parking.h"
+#include <list>
+#include "CAuto.h"
 #include "menu.h"
+#include "Parking.h"
+
 int main() {
     CMenu menu;
     menu.Menu();

@@ -22,7 +22,6 @@ public:
 
 
 private:
-
 	template<typename D>
 	class Node
 	{

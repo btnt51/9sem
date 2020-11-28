@@ -8,6 +8,7 @@
 
 CMenu::CMenu()
 {
+
 }
 
 CMenu::~CMenu()
