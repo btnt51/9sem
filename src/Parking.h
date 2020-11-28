@@ -7,18 +7,21 @@
 
 #include <iostream>
 #include <string>
+#include <list>
 #include "prototypes.h"
 #include "COurOwmList.h"
-
+class CAuto;
 class CParking
 {
 public:
-    CParking(int x);
+    explicit CParking(int x);
     ~CParking();
-    static void ChooseArrivalDeparture(const std::string& Command);
     void Arrival();
     void Departure(std::string Number);
     void Display();
+    #ifdef stllist
+    void removeAt(int k);
+    #endif
 
 private:
     class CAuto
@@ -29,6 +32,8 @@ private:
             Number= GeneratingNumber(rand()*rand());
             CountExiting = 0;
         }
+
+
         ~CAuto()
         {
             Number.clear();
@@ -52,7 +57,13 @@ private:
        int CountExiting;
 
     };
+
+#ifdef OwnList
     COwnList<CAuto> LCars;
+#endif //OwnList
+#ifdef stllist
+    std::list<CAuto> LCars;
+#endif //stllist
 };
 
 

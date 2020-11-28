@@ -17,7 +17,7 @@ public:
 	void push_front(T value);
 	void insert(T value, int index);
 	void removeAt(int index);
-	int Length();
+	int size();
 	void pop_back();
 
 
@@ -199,7 +199,7 @@ void COwnList<T>::pop_back()
 }
 
 template<typename T>
-int COwnList<T>::Length()
+int COwnList<T>::size()
 {
     return m_ListSize;
 }

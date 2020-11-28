@@ -1,20 +1,19 @@
 //
 // Created by btnt51 on 11/4/2020.
 //
-
+//#define OwnList
+#define stllist
 #include "Parking.h"
 
 CParking::CParking(int x)
 {
-    switch (x)
-    {
-        case 1:
-            break;
-        case 2:
-            break;
-        default:
-            break;
-    }
+   if(x == 1)
+   {
+       int Cars = rand() % 10 + 2;
+       for(int i = 0; i < Cars; i++)
+           this->Arrival();
+   }
+
 }
 
 CParking::~CParking()
@@ -22,44 +21,84 @@ CParking::~CParking()
     LCars.clear();
 }
 
-void CParking::ChooseArrivalDeparture(const std::string& Command)
-{
-
-    std::cout << "To place the car in the Parking lot, press 1/n"
-                 "To pick up a car from the Parking lot, press 2"<< std::endl;
-    std::string Arrival("arrival");
-    int Size = Command.length();
-    if(Size == 7)
-    {
-        
-    }
-}
-
 void CParking::Arrival()
 {
     CAuto newCar;
     LCars.push_back(newCar);
-    std::cout << newCar.getInfoArrival() << " at " << LCars.Length() << std::endl;
+    std::cout << newCar.getInfoArrival() << " at " << LCars.size() << std::endl;
     newCar.~CAuto();
 }
 
 void CParking::Departure(std::string Number)
 {
-    for(int i = 0; i < LCars.Length();i++)
+#ifdef OwnList
+    for(int i = 0; i < LCars.size();i++)
     {
         if(LCars[i].getNumber() == Number)
         {
             std::cout<< LCars[i].getInfoDeparture() << std::endl;
             LCars.removeAt(i);
+
         }
         else
             LCars[i].CountingExiting();
     }
+#endif
+#ifdef stllist
+    int i = 0;
+    for(auto iter = LCars.begin(); iter != LCars.end();iter++)
+    {
+        if(iter->getNumber() == Number)
+        {
+            std::cout<< iter->getInfoDeparture() << std::endl;
+            removeAt(i);
+        }
+        else
+        {
+            iter->CountingExiting();
+            i++;
+        }
+
+    }
+    #endif
 }
 
 void CParking::Display()
 {
-    for(int i = 0; i < LCars.Length(); i++)
+#ifdef OwnList
+    for(int i = 0; i < LCars.size(); i++)
         std::cout << "Parking lot#" << i+1 << " Number of car is " <<
-        LCars[i].getNumber() << std::endl;
+                  LCars[i].getNumber() << std::endl;
+#endif
+#ifdef stllist
+    int i =0;
+    auto iterator = LCars.begin();
+    while(i <= LCars.size())
+    {
+        std::cout << "Parking lot#" << i+1 << " Number of car is " <<
+            iterator->getNumber() << std::endl;
+        iterator++;
+        i++;
+    }
+#endif
 }
+
+#ifdef stllist
+void CParking::removeAt(int k)
+{
+    int i=0;
+    auto iterator= LCars.begin();
+    while(i <= k)
+    {
+        if(i==k)
+        {
+            LCars.remove(*iterator);
+        }
+        iterator++;
+        i++;
+    }
+}
+#endif
+
+
+

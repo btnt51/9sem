@@ -28,40 +28,34 @@ CMenu::~CMenu()
 
 void CMenu::Menu()
 {
-    Park->Display();
-    while(true)
-    {
-        std::string Command;
-        std::cout << "Enter plz arrival for adding car to parking lot" << std::endl;
-        std::cout << "Enter departure for executing car from parking lot" << std::endl;
-        std::cout << "Enter exit for exiting from program" << std::endl;
+    int CheckVar = 0;
+    while(true) {
         Park->Display();
-        std::getline(std::cin,Command);
-        int Size = Command.length();
-        if(Size == 16)
+        std::string Command;
+        if(CheckVar == 1)
         {
-            int j = 0;
-            std::string CommandAndNumber[2];
-            for(int i = 0; i < 16;i++)
-            {
-                if(i < 9)
-                {
-                    CommandAndNumber[0][i]=Command[i];
-                }
-                if(i > 9)
-                {
-                    CommandAndNumber[1][j] = Command[i];
-                    j++;
-                }
-            }
-            for (char &c : CommandAndNumber[0]) c = toupper(c);
-            if(strcmp(CommandAndNumber[0].c_str(),"DEPARTURE") == 0)
-                Park->Departure(CommandAndNumber[1]);
+            std::cout << "Enter plz arrival for adding car to parking lot" << std::endl;
+            std::cout << "Enter departure for executing car from parking lot" << std::endl;
+            std::cout << "Enter exit for exiting from program" << std::endl;
+        }
+        CheckVar = 1;
+        std::getline(std::cin, Command);
+        int Size = Command.length();
+        if (Size == 16)
+        {
+            std::string delimiter = " ";
+            int pos = Command.find(delimiter);
+            std::string LocalCommand;
+            LocalCommand = Command.substr(0, pos);
+            std::string Number;
+            Number = Command.substr(pos + 1, Command.size());
+            for (char &c : LocalCommand) c = toupper(c);
+            if (strcmp(LocalCommand.c_str(), "DEPARTURE") == 0)
+                Park->Departure(Number);
         }
         else
         {
-            for (char &c : Command) c = toupper(c);              //Переписать тут разделение на больше и меньше
-            // 16 символов чтобы нормально работать с этой залупой!!!!!
+            for (char &c : Command) c = toupper(c);
             if (strcmp(Command.c_str(), "EXIT") == 0)
             {
                 break;
