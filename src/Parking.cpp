@@ -5,20 +5,13 @@
 #define stllist
 #include "Parking.h"
 
-CParking::CParking(int x)
+CParking::CParking()
 {
-   if(x == 1)
-   {
-       int Cars = rand() % 10 + 2;
-       for(int i = 0; i < Cars; i++)
-           this->Arrival();
-   }
-
 }
 
 CParking::~CParking()
 {
-    LCars.clear();
+    //LCars.clear();
 }
 
 void CParking::Arrival()
@@ -51,14 +44,13 @@ void CParking::Departure(std::string Number)
         if(iter->getNumber() == Number)
         {
             std::cout<< iter->getInfoDeparture() << std::endl;
-            removeAt(i);
+            LCars.erase(iter);
         }
         else
         {
             iter->CountingExiting();
             i++;
         }
-
     }
     #endif
 }
@@ -71,7 +63,7 @@ void CParking::Display()
                   LCars[i].getNumber() << std::endl;
 #endif
 #ifdef stllist
-    int i =0;
+    int i = 0;
     auto iterator = LCars.begin();
     while(i <= LCars.size())
     {
@@ -79,26 +71,11 @@ void CParking::Display()
             iterator->getNumber() << std::endl;
         iterator++;
         i++;
-    }
+    }//
 #endif
 }
 
-#ifdef stllist
-void CParking::removeAt(int k)
-{
-    int i=0;
-    auto iterator= LCars.begin();
-    while(i <= k)
-    {
-        if(i==k)
-        {
-            LCars.remove(*iterator);
-        }
-        iterator++;
-        i++;
-    }
-}
-#endif
+
 
 
 

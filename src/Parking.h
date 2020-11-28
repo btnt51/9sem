@@ -10,18 +10,15 @@
 #include <list>
 #include "prototypes.h"
 #include "COurOwmList.h"
-class CAuto;
+//class CAuto;
 class CParking
 {
 public:
-    explicit CParking(int x);
+    CParking();
     ~CParking();
     void Arrival();
     void Departure(std::string Number);
     void Display();
-    #ifdef stllist
-    void removeAt(int k);
-    #endif
 
 private:
     class CAuto
@@ -29,10 +26,9 @@ private:
     public:
         CAuto()
         {
-            Number= GeneratingNumber(rand()*rand());
+            Number = GeneratingNumber(rand()*rand());
             CountExiting = 0;
         }
-
 
         ~CAuto()
         {
@@ -55,7 +51,6 @@ private:
     private:
        std::string Number;
        int CountExiting;
-
     };
 
 #ifdef OwnList

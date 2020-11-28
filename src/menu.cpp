@@ -8,29 +8,17 @@
 
 CMenu::CMenu()
 {
-    std::cout << "Enter plz how u want to make a parking lot" << std::endl;
-    std::cout << "By yourself or in automatic mode" << std::endl;
-    int choice = 0;
-    std::cout << "Enter 0 if u want to make it by your self" << std::endl;
-    std::cout << "Or enter 1 if u want to do it in automatic mode" << std::endl;
-    choice = inputData(choice,"Enter plz 0 if u want to do by yourself or 1 to do it in auto mode");
-    while(1 < choice || choice < 0)
-    {
-       choice = inputData(choice,"Enter plz 0 if u want to do by yourself or 1 to do it in auto mode");
-    }
-    Park = new CParking(choice);
 }
 
 CMenu::~CMenu()
 {
-    delete Park;
 }
 
 void CMenu::Menu()
 {
     int CheckVar = 0;
     while(true) {
-        Park->Display();
+        Park.Display();
         std::string Command;
         if(CheckVar == 1)
         {
@@ -51,7 +39,7 @@ void CMenu::Menu()
             Number = Command.substr(pos + 1, Command.size());
             for (char &c : LocalCommand) c = toupper(c);
             if (strcmp(LocalCommand.c_str(), "DEPARTURE") == 0)
-                Park->Departure(Number);
+                Park.Departure(Number);
         }
         else
         {
@@ -62,7 +50,7 @@ void CMenu::Menu()
             }
             else if (strcmp(Command.c_str(), "ARRIVAL") == 0 || strcmp(Command.c_str(), "ARIVAL") == 0)
             {
-                Park->Arrival();
+                Park.Arrival();
             }
         }
     }

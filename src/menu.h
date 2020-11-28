@@ -14,7 +14,7 @@ public:
     void Menu();
 
 private:
-    CParking *Park;
+    CParking Park;
 };
 
 
