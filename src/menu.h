@@ -8,12 +8,12 @@
 
 class CMenu {
 public:
-    CMenu();
-    ~CMenu();
-    void Menu();
+    CMenu();//конструктор по умолчанию
+    ~CMenu();//дестркутор по умолчанию
+    void Menu();//основная функция
 
 private:
-    CParking Park;
+    CParking Park;//создаём объект парковки
 };
 
 

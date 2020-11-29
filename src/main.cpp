@@ -1,11 +1,7 @@
-#include <iostream>
-#include <list>
-#include "CAuto.h"
 #include "menu.h"
-#include "Parking.h"
 
 int main() {
-    CMenu menu;
-    menu.Menu();
+    CMenu menu;//создание меню
+    menu.Menu();//вызов функции menu
     return 0;
 }

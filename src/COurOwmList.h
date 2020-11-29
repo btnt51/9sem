@@ -12,12 +12,11 @@ public:
 	void pop_front();
 	void push_back(T value);
 	void clear();
-	int GetSize() { return m_ListSize; }
+	int size() { return m_ListSize; }
 	T& operator[](int index);
 	void push_front(T value);
 	void insert(T value, int index);
 	void removeAt(int index);
-	int size();
 	void pop_back();
 
 
@@ -196,10 +195,3 @@ void COwnList<T>::pop_back()
 {
 	removeAt(m_ListSize - 1);
 }
-
-template<typename T>
-int COwnList<T>::size()
-{
-    return m_ListSize;
-}
-

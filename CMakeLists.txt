@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(9sem src/main.cpp src/Parking.cpp
         src/Parking.h src/prototypes.h
-        src/generatingNumber.cpp src/COurOwmList.h src/menu.cpp src/menu.h src/inputData.h)
+        src/generatingNumber.cpp src/COurOwmList.h src/menu.cpp src/menu.h)
