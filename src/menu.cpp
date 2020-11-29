@@ -23,11 +23,13 @@ void CMenu::Menu()
         std::string Command; //выделение памяти для команды
         if(CheckVar == 1) //проверка на первый запуск если 0 то проход по циклу в пустую
         {
-            std::cout << "Enter plz arrival for adding car to parking lot" << std::endl;
-            std::cout << "Enter departure for executing car from parking lot" << std::endl;
-            std::cout << "Enter exit for exiting from program" << std::endl;
+            std::cout << std::endl;
+            std::cout << "Enter plz \"arrival\" for adding car to parking lot" << std::endl;
+            std::cout << "Enter \"departure <number>\" for executing car from parking lot" << std::endl;
+            std::cout << "Enter \"exit\" for exiting from program" << std::endl;
             std::getline(std::cin, Command);   //считывание строки, используется
                                                     // гетлайн из-за особенности работы std::cin
+            std::cout << std::endl;
         }
         CheckVar = 1;
         int Size = Command.length(); //вычисление размера строки для корректоной работы
